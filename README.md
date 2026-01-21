@@ -1,8 +1,6 @@
-# Retos CSS Diner
+# Reto CSS Diner
 
-## Evidencias
-
-### Reto CSS Diner completado
+## Evidencia reto completado
 
 ![Reto CSS Diner completado](css-diner-completed.png)
 
