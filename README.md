@@ -1,4 +1,7 @@
-# Taller #1 - Repaso
+# Retos javascript
+
+- Ingreso de clave de la sucursal virtual de un banco con teclado
+- Menú navegación con scroll hacia una subsección de la misma pagina
 
 ---
 
