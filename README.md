@@ -4,10 +4,10 @@
 
 Las ramas de este repositorio se disponen de la siguiente manera:
 
-- **css**: Evidencia de la finalización del reto [CSS Diner](css-diner-completed.png) y conclusiones.
-- **flexbox**: Evidencia de la finalización del reto [Flexbox Froggy](flex-box-froggy-completed.jpeg) y conclusiones.
-- **gridlayout**: Evidencia de la finalización del reto [Grid Garden](grid-garden-completed.jpeg) y conclusiones.
-- **pelicula**: Desarrollo del diseño UML para una película de cartelera, incluyendo borrador a mano alzada y diseño digitalizado en StarUML
+- **css**: Evidencia de la finalización del reto **CSS Diner** y conclusiones.
+- **flexbox**: Evidencia de la finalización del reto **Flexbox Froggy** y conclusiones.
+- **gridlayout**: Evidencia de la finalización del reto **Grid Garden** y conclusiones.
+- **pelicula**: Desarrollo del diseño UML para una película de cartelera, incluyendo borrador a mano alzada y diseño digitalizado en StarUML.
 - **proyecto**: Proyecto de maquetación nivel 3 con archivos HTML, CSS, JS e imágenes necesarias.
 - **reto**: Desarrollo de los retos JS propuestos. Retos clave, menú, animación y texto en sus respectivas carpetas y recursos multimedia incluidos en la documentación.
 
