@@ -1,0 +1,5212 @@
+{
+	"_type": "Project",
+	"_id": "project1",
+	"name": "PeliculaMinions",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "model1",
+			"name": "ModeloMinions",
+			"ownedElements": [
+				{
+					"_type": "UMLInterface",
+					"_id": "iHablar",
+					"name": "IHablar",
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_hablar",
+							"_parent": {
+								"$ref": "iHablar"
+							},
+							"name": "hablar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_hablar_mensaje",
+									"_parent": {
+										"$ref": "op_hablar"
+									},
+									"name": "mensaje",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_hablar_return",
+									"_parent": {
+										"$ref": "op_hablar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLInterface",
+					"_id": "iTrabajar",
+					"name": "ITrabajar",
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_trabajar",
+							"_parent": {
+								"$ref": "iTrabajar"
+							},
+							"name": "trabajar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_trabajar_return",
+									"_parent": {
+										"$ref": "op_trabajar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_descansar",
+							"_parent": {
+								"$ref": "iTrabajar"
+							},
+							"name": "descansar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_descansar_return",
+									"_parent": {
+										"$ref": "op_descansar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "personaje",
+					"name": "Personaje",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_personaje_id",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "id",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_personaje_nombre",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "nombre",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_personaje_energia",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "energia",
+							"type": "int"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_personaje_constructor1",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "Personaje"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_personaje_constructor2",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "Personaje",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_personaje_nombre",
+									"_parent": {
+										"$ref": "op_personaje_constructor2"
+									},
+									"name": "nombre",
+									"type": "String"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_personaje_moverse",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "moverse",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_personaje_moverse_return",
+									"_parent": {
+										"$ref": "op_personaje_moverse"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							],
+							"isAbstract": true
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_personaje_getNombre",
+							"_parent": {
+								"$ref": "personaje"
+							},
+							"name": "getNombre",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_personaje_getNombre_return",
+									"_parent": {
+										"$ref": "op_personaje_getNombre"
+									},
+									"type": "String",
+									"direction": "return"
+								}
+							]
+						}
+					],
+					"isAbstract": true
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "minion",
+					"name": "Minion",
+					"ownedElements": [
+						{
+							"_type": "UMLInterfaceRealization",
+							"_id": "real_minion_hablar",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "implementa",
+							"source": {
+								"$ref": "minion"
+							},
+							"target": {
+								"$ref": "iHablar"
+							}
+						},
+						{
+							"_type": "UMLInterfaceRealization",
+							"_id": "real_minion_trabajar",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "implementa",
+							"source": {
+								"$ref": "minion"
+							},
+							"target": {
+								"$ref": "iTrabajar"
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minion_altura",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "altura",
+							"visibility": "private",
+							"type": "double"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minion_ojos",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "numeroOjos",
+							"visibility": "private",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minion_color",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "colorPiel",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minion_villano",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "villanoActual",
+							"visibility": "private",
+							"type": {
+								"$ref": "villano"
+							}
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minion_altura_max",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "ALTURA_MAXIMA",
+							"isStatic": true,
+							"type": "double",
+							"defaultValue": "150.0"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_constructor1",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "Minion"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_constructor2",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "Minion",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_nombre",
+									"_parent": {
+										"$ref": "op_minion_constructor2"
+									},
+									"name": "nombre",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_altura",
+									"_parent": {
+										"$ref": "op_minion_constructor2"
+									},
+									"name": "altura",
+									"type": "double"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_constructor3",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "Minion",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_nombre3",
+									"_parent": {
+										"$ref": "op_minion_constructor3"
+									},
+									"name": "nombre",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_altura3",
+									"_parent": {
+										"$ref": "op_minion_constructor3"
+									},
+									"name": "altura",
+									"type": "double"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_ojos3",
+									"_parent": {
+										"$ref": "op_minion_constructor3"
+									},
+									"name": "numeroOjos",
+									"type": "int"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_hablar2",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "hablar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_hablar2_return",
+									"_parent": {
+										"$ref": "op_minion_hablar2"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_hablar",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "hablar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_hablar_mensaje",
+									"_parent": {
+										"$ref": "op_minion_hablar"
+									},
+									"name": "mensaje",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_hablar_return",
+									"_parent": {
+										"$ref": "op_minion_hablar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_trabajar",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "trabajar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_trabajar_return",
+									"_parent": {
+										"$ref": "op_minion_trabajar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_trabajar2",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "trabajar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_trabajar2_intensidad",
+									"_parent": {
+										"$ref": "op_minion_trabajar2"
+									},
+									"name": "intensidad",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_trabajar2_return",
+									"_parent": {
+										"$ref": "op_minion_trabajar2"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_descansar",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "descansar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_descansar_return",
+									"_parent": {
+										"$ref": "op_minion_descansar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_moverse",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "moverse",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_moverse_return",
+									"_parent": {
+										"$ref": "op_minion_moverse"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minion_servirVillano",
+							"_parent": {
+								"$ref": "minion"
+							},
+							"name": "servirVillano",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_servirVillano_villano",
+									"_parent": {
+										"$ref": "op_minion_servirVillano"
+									},
+									"name": "villano",
+									"type": {
+										"$ref": "villano"
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minion_servirVillano_return",
+									"_parent": {
+										"$ref": "op_minion_servirVillano"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					],
+					"isAbstract": true
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "minionAlto",
+					"name": "MinionAlto",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minionAlto_esLider",
+							"_parent": {
+								"$ref": "minionAlto"
+							},
+							"name": "esLider",
+							"visibility": "private",
+							"type": "boolean"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionAlto_constructor",
+							"_parent": {
+								"$ref": "minionAlto"
+							},
+							"name": "MinionAlto",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionAlto_nombre",
+									"_parent": {
+										"$ref": "op_minionAlto_constructor"
+									},
+									"name": "nombre",
+									"type": "String"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionAlto_moverse",
+							"_parent": {
+								"$ref": "minionAlto"
+							},
+							"name": "moverse",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionAlto_moverse_return",
+									"_parent": {
+										"$ref": "op_minionAlto_moverse"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionAlto_liderar",
+							"_parent": {
+								"$ref": "minionAlto"
+							},
+							"name": "liderarGrupo",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionAlto_liderar_return",
+									"_parent": {
+										"$ref": "op_minionAlto_liderar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "minionBajo",
+					"name": "MinionBajo",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minionBajo_esGracioso",
+							"_parent": {
+								"$ref": "minionBajo"
+							},
+							"name": "esGracioso",
+							"visibility": "private",
+							"type": "boolean"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionBajo_constructor",
+							"_parent": {
+								"$ref": "minionBajo"
+							},
+							"name": "MinionBajo",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionBajo_nombre",
+									"_parent": {
+										"$ref": "op_minionBajo_constructor"
+									},
+									"name": "nombre",
+									"type": "String"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionBajo_moverse",
+							"_parent": {
+								"$ref": "minionBajo"
+							},
+							"name": "moverse",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionBajo_moverse_return",
+									"_parent": {
+										"$ref": "op_minionBajo_moverse"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionBajo_hacerTravesura",
+							"_parent": {
+								"$ref": "minionBajo"
+							},
+							"name": "hacerTravesura",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionBajo_hacerTravesura_return",
+									"_parent": {
+										"$ref": "op_minionBajo_hacerTravesura"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "minionUnOjo",
+					"name": "MinionUnOjo",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minionUnOjo_visionMejorada",
+							"_parent": {
+								"$ref": "minionUnOjo"
+							},
+							"name": "visionMejorada",
+							"visibility": "private",
+							"type": "boolean"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionUnOjo_constructor",
+							"_parent": {
+								"$ref": "minionUnOjo"
+							},
+							"name": "MinionUnOjo",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionUnOjo_nombre",
+									"_parent": {
+										"$ref": "op_minionUnOjo_constructor"
+									},
+									"name": "nombre",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionUnOjo_altura",
+									"_parent": {
+										"$ref": "op_minionUnOjo_constructor"
+									},
+									"name": "altura",
+									"type": "double"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionUnOjo_moverse",
+							"_parent": {
+								"$ref": "minionUnOjo"
+							},
+							"name": "moverse",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionUnOjo_moverse_return",
+									"_parent": {
+										"$ref": "op_minionUnOjo_moverse"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionUnOjo_detectarPeligro",
+							"_parent": {
+								"$ref": "minionUnOjo"
+							},
+							"name": "detectarPeligro",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionUnOjo_detectarPeligro_return",
+									"_parent": {
+										"$ref": "op_minionUnOjo_detectarPeligro"
+									},
+									"type": "boolean",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "minionMorado",
+					"name": "MinionMorado",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minionMorado_esAgresivo",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "esAgresivo",
+							"visibility": "private",
+							"type": "boolean"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minionMorado_nivelFuria",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "nivelFuria",
+							"visibility": "private",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_minionMorado_esIndestructible",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "esIndestructible",
+							"visibility": "private",
+							"type": "boolean"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionMorado_constructor",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "MinionMorado",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_nombre",
+									"_parent": {
+										"$ref": "op_minionMorado_constructor"
+									},
+									"name": "nombre",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_altura",
+									"_parent": {
+										"$ref": "op_minionMorado_constructor"
+									},
+									"name": "altura",
+									"type": "double"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionMorado_moverse",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "moverse",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_moverse_return",
+									"_parent": {
+										"$ref": "op_minionMorado_moverse"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionMorado_atacar",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "atacar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_atacar_return",
+									"_parent": {
+										"$ref": "op_minionMorado_atacar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionMorado_atacar2",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "atacar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_atacar2_objetivo",
+									"_parent": {
+										"$ref": "op_minionMorado_atacar2"
+									},
+									"name": "objetivo",
+									"type": {
+										"$ref": "personaje"
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_atacar2_return",
+									"_parent": {
+										"$ref": "op_minionMorado_atacar2"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_minionMorado_hablar",
+							"_parent": {
+								"$ref": "minionMorado"
+							},
+							"name": "hablar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_hablar_mensaje",
+									"_parent": {
+										"$ref": "op_minionMorado_hablar"
+									},
+									"name": "mensaje",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_minionMorado_hablar_return",
+									"_parent": {
+										"$ref": "op_minionMorado_hablar"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "villano",
+					"name": "Villano",
+					"ownedElements": [
+						{
+							"_type": "UMLAssociation",
+							"_id": "assoc_villano_minion",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "assoc_end1_villano",
+								"_parent": {
+									"$ref": "assoc_villano_minion"
+								},
+								"name": "jefe",
+								"reference": {
+									"$ref": "villano"
+								},
+								"multiplicity": "0..1"
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "assoc_end2_minion",
+								"_parent": {
+									"$ref": "assoc_villano_minion"
+								},
+								"name": "minionsServidos",
+								"reference": {
+									"$ref": "minion"
+								},
+								"navigable": "navigable",
+								"multiplicity": "0..*"
+							}
+						},
+						{
+							"_type": "UMLRealization",
+							"_id": "AAAAAAGb/8QyMP9DzzY=",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"source": {
+								"$ref": "villano"
+							},
+							"target": {
+								"$ref": "villano"
+							}
+						},
+						{
+							"_type": "UMLGeneralization",
+							"_id": "AAAAAAGb/8Sd+gCXhaE=",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "es un",
+							"source": {
+								"$ref": "villano"
+							},
+							"target": {
+								"$ref": "personaje"
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_villano_nombre",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "nombre",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_villano_planMalevolo",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "planMalevolo",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_villano_nivelMaldad",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "nivelMaldad",
+							"visibility": "private",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_villano_minions",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "minions",
+							"visibility": "private",
+							"type": "List<Minion>"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_villano_constructor",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "Villano",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_villano_nombre",
+									"_parent": {
+										"$ref": "op_villano_constructor"
+									},
+									"name": "nombre",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_villano_plan",
+									"_parent": {
+										"$ref": "op_villano_constructor"
+									},
+									"name": "planMalevolo",
+									"type": "String"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_villano_reclutarMinion",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "reclutarMinion",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_villano_reclutarMinion_minion",
+									"_parent": {
+										"$ref": "op_villano_reclutarMinion"
+									},
+									"name": "minion",
+									"type": {
+										"$ref": "minion"
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_villano_reclutarMinion_return",
+									"_parent": {
+										"$ref": "op_villano_reclutarMinion"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_villano_ejecutarPlan",
+							"_parent": {
+								"$ref": "villano"
+							},
+							"name": "ejecutarPlan",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_villano_ejecutarPlan_return",
+									"_parent": {
+										"$ref": "op_villano_ejecutarPlan"
+									},
+									"type": "boolean",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "pelicula",
+					"name": "PeliculaMinions",
+					"ownedElements": [
+						{
+							"_type": "UMLDependency",
+							"_id": "dep_pelicula_personaje",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"source": {
+								"$ref": "pelicula"
+							},
+							"target": {
+								"$ref": "personaje"
+							}
+						}
+					],
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_pelicula_titulo",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "titulo",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_pelicula_director",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "director",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_pelicula_anio",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "anoEstreno",
+							"visibility": "private",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_pelicula_duracion",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "duracionMinutos",
+							"visibility": "private",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "attr_pelicula_personajes",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "personajes",
+							"visibility": "private",
+							"type": "List<Personaje>"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "op_pelicula_constructor",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "PeliculaMinions",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_pelicula_titulo",
+									"_parent": {
+										"$ref": "op_pelicula_constructor"
+									},
+									"name": "titulo",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_pelicula_anio",
+									"_parent": {
+										"$ref": "op_pelicula_constructor"
+									},
+									"name": "anoEstreno",
+									"type": "int"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_pelicula_agregarPersonaje",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "agregarPersonaje",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_pelicula_agregarPersonaje_personaje",
+									"_parent": {
+										"$ref": "op_pelicula_agregarPersonaje"
+									},
+									"name": "personaje",
+									"type": {
+										"$ref": "personaje"
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "param_pelicula_agregarPersonaje_return",
+									"_parent": {
+										"$ref": "op_pelicula_agregarPersonaje"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "op_pelicula_reproducir",
+							"_parent": {
+								"$ref": "pelicula"
+							},
+							"name": "reproducir",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "param_pelicula_reproducir_return",
+									"_parent": {
+										"$ref": "op_pelicula_reproducir"
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLGeneralization",
+					"_id": "gen_minion_personaje",
+					"name": "es un",
+					"source": {
+						"$ref": "minion"
+					},
+					"target": {
+						"$ref": "personaje"
+					}
+				},
+				{
+					"_type": "UMLGeneralization",
+					"_id": "gen_minionAlto_minion",
+					"name": "es un",
+					"source": {
+						"$ref": "minionAlto"
+					},
+					"target": {
+						"$ref": "minion"
+					}
+				},
+				{
+					"_type": "UMLGeneralization",
+					"_id": "gen_minionBajo_minion",
+					"name": "es un",
+					"source": {
+						"$ref": "minionBajo"
+					},
+					"target": {
+						"$ref": "minion"
+					}
+				},
+				{
+					"_type": "UMLGeneralization",
+					"_id": "gen_minionUnOjo_minion",
+					"name": "es un",
+					"source": {
+						"$ref": "minionUnOjo"
+					},
+					"target": {
+						"$ref": "minion"
+					}
+				},
+				{
+					"_type": "UMLGeneralization",
+					"_id": "gen_minionMorado_minion",
+					"name": "es un",
+					"source": {
+						"$ref": "minionMorado"
+					},
+					"target": {
+						"$ref": "minion"
+					}
+				},
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "diagram_minions",
+					"name": "Diagrama Película Minions",
+					"ownedViews": [
+						{
+							"_type": "UMLInterfaceView",
+							"_id": "view_iHablar",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "iHablar"
+							},
+							"subViews": [
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAGb/726UtsnZho=",
+									"_parent": {
+										"$ref": "view_iHablar"
+									},
+									"model": {
+										"$ref": "iHablar"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 48,
+									"top": 262,
+									"width": 184.77978515625,
+									"height": 10
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726UtspbZE=",
+									"_parent": {
+										"$ref": "view_iHablar"
+									},
+									"model": {
+										"$ref": "iHablar"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": -2,
+									"top": 179,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726Utsq0Cc=",
+									"_parent": {
+										"$ref": "view_iHablar"
+									},
+									"model": {
+										"$ref": "iHablar"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": -2,
+									"top": 179,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_iHablar_name",
+									"_parent": {
+										"$ref": "view_iHablar"
+									},
+									"model": {
+										"$ref": "iHablar"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Utss8dU=",
+											"_parent": {
+												"$ref": "view_iHablar_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 53,
+											"top": 229,
+											"width": 174.77978515625,
+											"height": 13,
+											"text": "«interface»"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Utstk4M=",
+											"_parent": {
+												"$ref": "view_iHablar_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 53,
+											"top": 244,
+											"width": 174.77978515625,
+											"height": 13,
+											"text": "IHablar"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726UtsugL0=",
+											"_parent": {
+												"$ref": "view_iHablar_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": -4,
+											"top": 358,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Utsvx1k=",
+											"_parent": {
+												"$ref": "view_iHablar_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": -4,
+											"top": 358,
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 48,
+									"top": 224,
+									"width": 184.77978515625,
+									"height": 38,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726Utss8dU="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726Utstk4M="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726UtsugL0="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726Utsvx1k="
+									}
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_iHablar_operations",
+									"_parent": {
+										"$ref": "view_iHablar"
+									},
+									"model": {
+										"$ref": "iHablar"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726hdv6TiA=",
+											"_parent": {
+												"$ref": "view_iHablar_operations"
+											},
+											"model": {
+												"$ref": "op_hablar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 53,
+											"top": 277,
+											"width": 174.77978515625,
+											"height": 13,
+											"text": "+hablar(mensaje: String): void",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 48,
+									"top": 272,
+									"width": 184.77978515625,
+									"height": 23
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 48,
+							"top": 224,
+							"width": 183.77978515625,
+							"height": 72,
+							"nameCompartment": {
+								"$ref": "view_iHablar_name"
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAGb/726UtsnZho="
+							},
+							"operationCompartment": {
+								"$ref": "view_iHablar_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726UtspbZE="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726Utsq0Cc="
+							}
+						},
+						{
+							"_type": "UMLInterfaceView",
+							"_id": "view_iTrabajar",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "iTrabajar"
+							},
+							"subViews": [
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAGb/726U9s5Sz8=",
+									"_parent": {
+										"$ref": "view_iTrabajar"
+									},
+									"model": {
+										"$ref": "iTrabajar"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 48,
+									"top": 423,
+									"width": 141,
+									"height": 10
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726U9s7Kxw=",
+									"_parent": {
+										"$ref": "view_iTrabajar"
+									},
+									"model": {
+										"$ref": "iTrabajar"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": -172,
+									"top": 339,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726U9s8VyE=",
+									"_parent": {
+										"$ref": "view_iTrabajar"
+									},
+									"model": {
+										"$ref": "iTrabajar"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": -172,
+									"top": 339,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_iTrabajar_name",
+									"_parent": {
+										"$ref": "view_iTrabajar"
+									},
+									"model": {
+										"$ref": "iTrabajar"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9s+gv0=",
+											"_parent": {
+												"$ref": "view_iTrabajar_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 53,
+											"top": 390,
+											"width": 131,
+											"height": 13,
+											"text": "«interface»"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9s/nSg=",
+											"_parent": {
+												"$ref": "view_iTrabajar_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 53,
+											"top": 405,
+											"width": 131,
+											"height": 13,
+											"text": "ITrabajar"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9tAys8=",
+											"_parent": {
+												"$ref": "view_iTrabajar_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": -344,
+											"top": 678,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9tBsbE=",
+											"_parent": {
+												"$ref": "view_iTrabajar_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": -344,
+											"top": 678,
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 48,
+									"top": 385,
+									"width": 141,
+									"height": 38,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726U9s+gv0="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726U9s/nSg="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726U9tAys8="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726U9tBsbE="
+									}
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_iTrabajar_operations",
+									"_parent": {
+										"$ref": "view_iTrabajar"
+									},
+									"model": {
+										"$ref": "iTrabajar"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726j9wAPd0=",
+											"_parent": {
+												"$ref": "view_iTrabajar_operations"
+											},
+											"model": {
+												"$ref": "op_trabajar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 53,
+											"top": 438,
+											"width": 131,
+											"height": 13,
+											"text": "+trabajar(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726j9wDfhM=",
+											"_parent": {
+												"$ref": "view_iTrabajar_operations"
+											},
+											"model": {
+												"$ref": "op_descansar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 53,
+											"top": 453,
+											"width": 131,
+											"height": 13,
+											"text": "+descansar(): void",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 48,
+									"top": 433,
+									"width": 141,
+									"height": 38
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 48,
+							"top": 385,
+							"width": 140,
+							"height": 87,
+							"nameCompartment": {
+								"$ref": "view_iTrabajar_name"
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAGb/726U9s5Sz8="
+							},
+							"operationCompartment": {
+								"$ref": "view_iTrabajar_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726U9s7Kxw="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726U9s8VyE="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_personaje",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "personaje"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726U9tNhIA=",
+									"_parent": {
+										"$ref": "view_personaje"
+									},
+									"model": {
+										"$ref": "personaje"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 442,
+									"top": -95,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726U9tO8PM=",
+									"_parent": {
+										"$ref": "view_personaje"
+									},
+									"model": {
+										"$ref": "personaje"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 442,
+									"top": -95,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_personaje_name",
+									"_parent": {
+										"$ref": "view_personaje"
+									},
+									"model": {
+										"$ref": "personaje"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9tQzfs=",
+											"_parent": {
+												"$ref": "view_personaje_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 884,
+											"top": -190,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9tR5Mc=",
+											"_parent": {
+												"$ref": "view_personaje_name"
+											},
+											"font": "Arial;13;3",
+											"parentStyle": true,
+											"left": 597,
+											"top": 87,
+											"width": 171,
+											"height": 13,
+											"text": "Personaje"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9tSqqI=",
+											"_parent": {
+												"$ref": "view_personaje_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 884,
+											"top": -190,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726U9tTeUQ=",
+											"_parent": {
+												"$ref": "view_personaje_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 884,
+											"top": -190,
+											"height": 13,
+											"horizontalAlignment": 1
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_personaje_stereotype",
+											"_parent": {
+												"$ref": "view_personaje_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 102,
+											"width": 171,
+											"height": 13,
+											"text": "<<abstract>>"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_personaje_name_label",
+											"_parent": {
+												"$ref": "view_personaje_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 117,
+											"width": 171,
+											"height": 13,
+											"text": "Personaje"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 592,
+									"top": 80,
+									"width": 181,
+									"height": 55,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726U9tQzfs="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726U9tR5Mc="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726U9tSqqI="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726U9tTeUQ="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_personaje_attributes",
+									"_parent": {
+										"$ref": "view_personaje"
+									},
+									"model": {
+										"$ref": "personaje"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726kNwI7dg=",
+											"_parent": {
+												"$ref": "view_personaje_attributes"
+											},
+											"model": {
+												"$ref": "attr_personaje_id"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 140,
+											"width": 171,
+											"height": 13,
+											"text": "+id: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726kNwLh84=",
+											"_parent": {
+												"$ref": "view_personaje_attributes"
+											},
+											"model": {
+												"$ref": "attr_personaje_nombre"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 155,
+											"width": 171,
+											"height": 13,
+											"text": "+nombre: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726kdwO3xM=",
+											"_parent": {
+												"$ref": "view_personaje_attributes"
+											},
+											"model": {
+												"$ref": "attr_personaje_energia"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 170,
+											"width": 171,
+											"height": 13,
+											"text": "+energia: int",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 592,
+									"top": 135,
+									"width": 181,
+									"height": 53
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_personaje_operations",
+									"_parent": {
+										"$ref": "view_personaje"
+									},
+									"model": {
+										"$ref": "personaje"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726kdwUHKw=",
+											"_parent": {
+												"$ref": "view_personaje_operations"
+											},
+											"model": {
+												"$ref": "op_personaje_constructor1"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 193,
+											"width": 171,
+											"height": 13,
+											"text": "+Personaje()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726kdwXCnw=",
+											"_parent": {
+												"$ref": "view_personaje_operations"
+											},
+											"model": {
+												"$ref": "op_personaje_constructor2"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 208,
+											"width": 171,
+											"height": 13,
+											"text": "+Personaje(nombre: String)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726kdwaJZk=",
+											"_parent": {
+												"$ref": "view_personaje_operations"
+											},
+											"model": {
+												"$ref": "op_personaje_moverse"
+											},
+											"font": "Arial;13;2",
+											"parentStyle": true,
+											"left": 597,
+											"top": 223,
+											"width": 171,
+											"height": 13,
+											"text": "+moverse(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726kdwdP04=",
+											"_parent": {
+												"$ref": "view_personaje_operations"
+											},
+											"model": {
+												"$ref": "op_personaje_getNombre"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 597,
+											"top": 238,
+											"width": 171,
+											"height": 13,
+											"text": "+getNombre(): String",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 592,
+									"top": 188,
+									"width": 181,
+									"height": 68
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 592,
+							"top": 80,
+							"width": 180,
+							"height": 176,
+							"nameCompartment": {
+								"$ref": "view_personaje_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_personaje_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_personaje_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726U9tNhIA="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726U9tO8PM="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_minion",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "minion"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726VNtgmMU=",
+									"_parent": {
+										"$ref": "view_minion"
+									},
+									"model": {
+										"$ref": "minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 146,
+									"top": -43,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726VNthMeI=",
+									"_parent": {
+										"$ref": "view_minion"
+									},
+									"model": {
+										"$ref": "minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 146,
+									"top": -43,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_minion_name",
+									"_parent": {
+										"$ref": "view_minion"
+									},
+									"model": {
+										"$ref": "minion"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNtjbUE=",
+											"_parent": {
+												"$ref": "view_minion_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 292,
+											"top": -86,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNtkan4=",
+											"_parent": {
+												"$ref": "view_minion_name"
+											},
+											"font": "Arial;13;3",
+											"parentStyle": true,
+											"left": 301,
+											"top": 359,
+											"width": 325.796875,
+											"height": 13,
+											"text": "Minion"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNtloKI=",
+											"_parent": {
+												"$ref": "view_minion_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 292,
+											"top": -86,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNtmbSE=",
+											"_parent": {
+												"$ref": "view_minion_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 292,
+											"top": -86,
+											"height": 13,
+											"horizontalAlignment": 1
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minion_stereotype",
+											"_parent": {
+												"$ref": "view_minion_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 374,
+											"width": 325.796875,
+											"height": 13,
+											"text": "<<abstract>>"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minion_name_label",
+											"_parent": {
+												"$ref": "view_minion_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 389,
+											"width": 325.796875,
+											"height": 13,
+											"text": "Minion"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 296,
+									"top": 352,
+									"width": 335.796875,
+									"height": 55,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726VNtjbUE="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726VNtkan4="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726VNtloKI="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726VNtmbSE="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_minion_attributes",
+									"_parent": {
+										"$ref": "view_minion"
+									},
+									"model": {
+										"$ref": "minion"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726mdwiGxA=",
+											"_parent": {
+												"$ref": "view_minion_attributes"
+											},
+											"model": {
+												"$ref": "attr_minion_altura"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 412,
+											"width": 325.796875,
+											"height": 13,
+											"text": "-altura: double",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726mdwlSRY=",
+											"_parent": {
+												"$ref": "view_minion_attributes"
+											},
+											"model": {
+												"$ref": "attr_minion_ojos"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 427,
+											"width": 325.796875,
+											"height": 13,
+											"text": "-numeroOjos: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726mdwoK8o=",
+											"_parent": {
+												"$ref": "view_minion_attributes"
+											},
+											"model": {
+												"$ref": "attr_minion_color"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 442,
+											"width": 325.796875,
+											"height": 13,
+											"text": "-colorPiel: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726mdwr2F4=",
+											"_parent": {
+												"$ref": "view_minion_attributes"
+											},
+											"model": {
+												"$ref": "attr_minion_villano"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 457,
+											"width": 325.796875,
+											"height": 13,
+											"text": "-villanoActual: Villano",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726mdwurDc=",
+											"_parent": {
+												"$ref": "view_minion_attributes"
+											},
+											"model": {
+												"$ref": "attr_minion_altura_max"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 472,
+											"width": 325.796875,
+											"height": 13,
+											"underline": true,
+											"text": "+ALTURA_MAXIMA: double = 150.0",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 296,
+									"top": 407,
+									"width": 335.796875,
+									"height": 83
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_minion_operations",
+									"_parent": {
+										"$ref": "view_minion"
+									},
+									"model": {
+										"$ref": "minion"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mdw0+6I=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_constructor1"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 495,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+Minion()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mdw3TTc=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_constructor2"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 510,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+Minion(nombre: String, altura: double)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mdw65XM=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_constructor3"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 525,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+Minion(nombre: String, altura: double, numeroOjos: int)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/8+4QR285cA=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_hablar2"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 540,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+hablar(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mtw928M=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_hablar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 555,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+hablar(mensaje: String): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mtxAWMs=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_trabajar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 570,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+trabajar(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/8+4QR2/CSg=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_trabajar2"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 585,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+trabajar(intensidad: int): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mtxDEk8=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_descansar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 600,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+descansar(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mtxGO00=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_moverse"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 615,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+moverse(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726mtxJTTo=",
+											"_parent": {
+												"$ref": "view_minion_operations"
+											},
+											"model": {
+												"$ref": "op_minion_servirVillano"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 301,
+											"top": 630,
+											"width": 325.796875,
+											"height": 13,
+											"text": "+servirVillano(villano: Villano): void",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 296,
+									"top": 490,
+									"width": 335.796875,
+									"height": 158
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 296,
+							"top": 352,
+							"width": 334.796875,
+							"height": 296,
+							"nameCompartment": {
+								"$ref": "view_minion_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_minion_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_minion_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726VNtgmMU="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726VNthMeI="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_minionAlto",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "minionAlto"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726VNtzHi4=",
+									"_parent": {
+										"$ref": "view_minionAlto"
+									},
+									"model": {
+										"$ref": "minionAlto"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 44,
+									"top": -5,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726VNt0qgU=",
+									"_parent": {
+										"$ref": "view_minionAlto"
+									},
+									"model": {
+										"$ref": "minionAlto"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 44,
+									"top": -5,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_minionAlto_name",
+									"_parent": {
+										"$ref": "view_minionAlto"
+									},
+									"model": {
+										"$ref": "minionAlto"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNt2iMA=",
+											"_parent": {
+												"$ref": "view_minionAlto_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 88,
+											"top": -10,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNt3yeA=",
+											"_parent": {
+												"$ref": "view_minionAlto_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 69,
+											"top": 727,
+											"width": 163.2080078125,
+											"height": 13,
+											"text": "MinionAlto"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNt48ko=",
+											"_parent": {
+												"$ref": "view_minionAlto_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 88,
+											"top": -10,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VNt5Avw=",
+											"_parent": {
+												"$ref": "view_minionAlto_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 88,
+											"top": -10,
+											"height": 13,
+											"horizontalAlignment": 1
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minionAlto_name_label",
+											"_parent": {
+												"$ref": "view_minionAlto_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 69,
+											"top": 742,
+											"width": 163.2080078125,
+											"height": 13,
+											"text": "MinionAlto"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 64,
+									"top": 720,
+									"width": 173.2080078125,
+									"height": 40,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726VNt2iMA="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726VNt3yeA="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726VNt48ko="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726VNt5Avw="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_minionAlto_attributes",
+									"_parent": {
+										"$ref": "view_minionAlto"
+									},
+									"model": {
+										"$ref": "minionAlto"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726nNxOfB0=",
+											"_parent": {
+												"$ref": "view_minionAlto_attributes"
+											},
+											"model": {
+												"$ref": "attr_minionAlto_esLider"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 69,
+											"top": 765,
+											"width": 163.2080078125,
+											"height": 13,
+											"text": "-esLider: boolean",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 64,
+									"top": 760,
+									"width": 173.2080078125,
+									"height": 23
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_minionAlto_operations",
+									"_parent": {
+										"$ref": "view_minionAlto"
+									},
+									"model": {
+										"$ref": "minionAlto"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726nNxRXn0=",
+											"_parent": {
+												"$ref": "view_minionAlto_operations"
+											},
+											"model": {
+												"$ref": "op_minionAlto_constructor"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 69,
+											"top": 788,
+											"width": 163.2080078125,
+											"height": 13,
+											"text": "+MinionAlto(nombre: String)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726nNxUWQ0=",
+											"_parent": {
+												"$ref": "view_minionAlto_operations"
+											},
+											"model": {
+												"$ref": "op_minionAlto_moverse"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 69,
+											"top": 803,
+											"width": 163.2080078125,
+											"height": 13,
+											"text": "+moverse(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726ndxXkMQ=",
+											"_parent": {
+												"$ref": "view_minionAlto_operations"
+											},
+											"model": {
+												"$ref": "op_minionAlto_liderar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 69,
+											"top": 818,
+											"width": 163.2080078125,
+											"height": 13,
+											"text": "+liderarGrupo(): void",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 64,
+									"top": 783,
+									"width": 173.2080078125,
+									"height": 53
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 64,
+							"top": 720,
+							"width": 172.2080078125,
+							"height": 116,
+							"nameCompartment": {
+								"$ref": "view_minionAlto_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_minionAlto_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_minionAlto_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726VNtzHi4="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726VNt0qgU="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_minionBajo",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "minionBajo"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726VduFPeQ=",
+									"_parent": {
+										"$ref": "view_minionBajo"
+									},
+									"model": {
+										"$ref": "minionBajo"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 87,
+									"top": 3,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726VduGQvw=",
+									"_parent": {
+										"$ref": "view_minionBajo"
+									},
+									"model": {
+										"$ref": "minionBajo"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 87,
+									"top": 3,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_minionBajo_name",
+									"_parent": {
+										"$ref": "view_minionBajo"
+									},
+									"model": {
+										"$ref": "minionBajo"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VduIbH8=",
+											"_parent": {
+												"$ref": "view_minionBajo_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 174,
+											"top": 6,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VduJjN4=",
+											"_parent": {
+												"$ref": "view_minionBajo_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 277,
+											"top": 735,
+											"width": 166.826171875,
+											"height": 13,
+											"text": "MinionBajo"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VduKy+c=",
+											"_parent": {
+												"$ref": "view_minionBajo_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 174,
+											"top": 6,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VduL3vk=",
+											"_parent": {
+												"$ref": "view_minionBajo_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 174,
+											"top": 6,
+											"height": 13,
+											"horizontalAlignment": 1
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minionBajo_name_label",
+											"_parent": {
+												"$ref": "view_minionBajo_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 277,
+											"top": 750,
+											"width": 166.826171875,
+											"height": 13,
+											"text": "MinionBajo"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 272,
+									"top": 728,
+									"width": 176.826171875,
+									"height": 40,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726VduIbH8="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726VduJjN4="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726VduKy+c="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726VduL3vk="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_minionBajo_attributes",
+									"_parent": {
+										"$ref": "view_minionBajo"
+									},
+									"model": {
+										"$ref": "minionBajo"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726ntxcIkc=",
+											"_parent": {
+												"$ref": "view_minionBajo_attributes"
+											},
+											"model": {
+												"$ref": "attr_minionBajo_esGracioso"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 277,
+											"top": 773,
+											"width": 166.826171875,
+											"height": 13,
+											"text": "-esGracioso: boolean",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 272,
+									"top": 768,
+									"width": 176.826171875,
+									"height": 23
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_minionBajo_operations",
+									"_parent": {
+										"$ref": "view_minionBajo"
+									},
+									"model": {
+										"$ref": "minionBajo"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726ntxfCXs=",
+											"_parent": {
+												"$ref": "view_minionBajo_operations"
+											},
+											"model": {
+												"$ref": "op_minionBajo_constructor"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 277,
+											"top": 796,
+											"width": 166.826171875,
+											"height": 13,
+											"text": "+MinionBajo(nombre: String)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726ntxiPRU=",
+											"_parent": {
+												"$ref": "view_minionBajo_operations"
+											},
+											"model": {
+												"$ref": "op_minionBajo_moverse"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 277,
+											"top": 811,
+											"width": 166.826171875,
+											"height": 13,
+											"text": "+moverse(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726ntxl0Pc=",
+											"_parent": {
+												"$ref": "view_minionBajo_operations"
+											},
+											"model": {
+												"$ref": "op_minionBajo_hacerTravesura"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 277,
+											"top": 826,
+											"width": 166.826171875,
+											"height": 13,
+											"text": "+hacerTravesura(): void",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 272,
+									"top": 791,
+									"width": 176.826171875,
+									"height": 53
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 272,
+							"top": 728,
+							"width": 175.826171875,
+							"height": 116,
+							"nameCompartment": {
+								"$ref": "view_minionBajo_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_minionBajo_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_minionBajo_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726VduFPeQ="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726VduGQvw="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_minionUnOjo",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "minionUnOjo"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726VduXf0g=",
+									"_parent": {
+										"$ref": "view_minionUnOjo"
+									},
+									"model": {
+										"$ref": "minionUnOjo"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 130,
+									"top": 3,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726VduYeRU=",
+									"_parent": {
+										"$ref": "view_minionUnOjo"
+									},
+									"model": {
+										"$ref": "minionUnOjo"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 130,
+									"top": 3,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_minionUnOjo_name",
+									"_parent": {
+										"$ref": "view_minionUnOjo"
+									},
+									"model": {
+										"$ref": "minionUnOjo"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Vduav/Q=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 260,
+											"top": 6,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Vdub0EQ=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 485,
+											"top": 735,
+											"width": 263.65966796875,
+											"height": 13,
+											"text": "MinionUnOjo"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Vduc37I=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 260,
+											"top": 6,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Vdudk1s=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 260,
+											"top": 6,
+											"height": 13,
+											"horizontalAlignment": 1
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minionUnOjo_name_label",
+											"_parent": {
+												"$ref": "view_minionUnOjo_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 485,
+											"top": 750,
+											"width": 263.65966796875,
+											"height": 13,
+											"text": "MinionUnOjo"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 480,
+									"top": 728,
+									"width": 273.65966796875,
+									"height": 40,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726Vduav/Q="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726Vdub0EQ="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726Vduc37I="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726Vdudk1s="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_minionUnOjo_attributes",
+									"_parent": {
+										"$ref": "view_minionUnOjo"
+									},
+									"model": {
+										"$ref": "minionUnOjo"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726n9xq394=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_attributes"
+											},
+											"model": {
+												"$ref": "attr_minionUnOjo_visionMejorada"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 485,
+											"top": 773,
+											"width": 263.65966796875,
+											"height": 13,
+											"text": "-visionMejorada: boolean",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 480,
+									"top": 768,
+									"width": 273.65966796875,
+									"height": 23
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_minionUnOjo_operations",
+									"_parent": {
+										"$ref": "view_minionUnOjo"
+									},
+									"model": {
+										"$ref": "minionUnOjo"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726n9xtY3I=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_operations"
+											},
+											"model": {
+												"$ref": "op_minionUnOjo_constructor"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 485,
+											"top": 796,
+											"width": 263.65966796875,
+											"height": 13,
+											"text": "+MinionUnOjo(nombre: String, altura: double)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726n9xwhJ8=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_operations"
+											},
+											"model": {
+												"$ref": "op_minionUnOjo_moverse"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 485,
+											"top": 811,
+											"width": 263.65966796875,
+											"height": 13,
+											"text": "+moverse(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726n9xzH7E=",
+											"_parent": {
+												"$ref": "view_minionUnOjo_operations"
+											},
+											"model": {
+												"$ref": "op_minionUnOjo_detectarPeligro"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 485,
+											"top": 826,
+											"width": 263.65966796875,
+											"height": 13,
+											"text": "+detectarPeligro(): boolean",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 480,
+									"top": 791,
+									"width": 273.65966796875,
+									"height": 53
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 480,
+							"top": 728,
+							"width": 272.65966796875,
+							"height": 116,
+							"nameCompartment": {
+								"$ref": "view_minionUnOjo_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_minionUnOjo_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_minionUnOjo_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726VduXf0g="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726VduYeRU="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_minionMorado",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "minionMorado"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "view_minionMorado_reception",
+									"_parent": {
+										"$ref": "view_minionMorado"
+									},
+									"model": {
+										"$ref": "minionMorado"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 180,
+									"top": 558,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "view_minionMorado_template",
+									"_parent": {
+										"$ref": "view_minionMorado"
+									},
+									"model": {
+										"$ref": "minionMorado"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 180,
+									"top": 558,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_minionMorado_name",
+									"_parent": {
+										"$ref": "view_minionMorado"
+									},
+									"model": {
+										"$ref": "minionMorado"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "view_minionMorado_stereotype",
+											"_parent": {
+												"$ref": "view_minionMorado_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"top": 566,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minionMorado_name_label",
+											"_parent": {
+												"$ref": "view_minionMorado_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 781,
+											"top": 719,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "MinionMorado"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minionMorado_namespace",
+											"_parent": {
+												"$ref": "view_minionMorado_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"top": 566,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_minionMorado_property",
+											"_parent": {
+												"$ref": "view_minionMorado_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"top": 566,
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 776,
+									"top": 712,
+									"width": 280.8896484375,
+									"height": 25,
+									"stereotypeLabel": {
+										"$ref": "view_minionMorado_stereotype"
+									},
+									"nameLabel": {
+										"$ref": "view_minionMorado_name_label"
+									},
+									"namespaceLabel": {
+										"$ref": "view_minionMorado_namespace"
+									},
+									"propertyLabel": {
+										"$ref": "view_minionMorado_property"
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_minionMorado_attributes",
+									"_parent": {
+										"$ref": "view_minionMorado"
+									},
+									"model": {
+										"$ref": "minionMorado"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "view_minionMorado_attr_esAgresivo",
+											"_parent": {
+												"$ref": "view_minionMorado_attributes"
+											},
+											"model": {
+												"$ref": "attr_minionMorado_esAgresivo"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 742,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "-esAgresivo: boolean",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "view_minionMorado_attr_nivelFuria",
+											"_parent": {
+												"$ref": "view_minionMorado_attributes"
+											},
+											"model": {
+												"$ref": "attr_minionMorado_nivelFuria"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 757,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "-nivelFuria: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "view_minionMorado_attr_esIndestructible",
+											"_parent": {
+												"$ref": "view_minionMorado_attributes"
+											},
+											"model": {
+												"$ref": "attr_minionMorado_esIndestructible"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 772,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "-esIndestructible: boolean",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 776,
+									"top": 737,
+									"width": 280.8896484375,
+									"height": 53
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_minionMorado_operations",
+									"_parent": {
+										"$ref": "view_minionMorado"
+									},
+									"model": {
+										"$ref": "minionMorado"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "view_minionMorado_op_constructor",
+											"_parent": {
+												"$ref": "view_minionMorado_operations"
+											},
+											"model": {
+												"$ref": "op_minionMorado_constructor"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 795,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "+MinionMorado(nombre: String, altura: double)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "view_minionMorado_op_moverse",
+											"_parent": {
+												"$ref": "view_minionMorado_operations"
+											},
+											"model": {
+												"$ref": "op_minionMorado_moverse"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 810,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "+moverse(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "view_minionMorado_op_atacar",
+											"_parent": {
+												"$ref": "view_minionMorado_operations"
+											},
+											"model": {
+												"$ref": "op_minionMorado_atacar"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 825,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "+atacar(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/8+4Rh3CZ0M=",
+											"_parent": {
+												"$ref": "view_minionMorado_operations"
+											},
+											"model": {
+												"$ref": "op_minionMorado_atacar2"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 840,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "+atacar(objetivo: Personaje): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "view_minionMorado_op_hablar",
+											"_parent": {
+												"$ref": "view_minionMorado_operations"
+											},
+											"model": {
+												"$ref": "op_minionMorado_hablar"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 781,
+											"top": 855,
+											"width": 270.8896484375,
+											"height": 13,
+											"text": "+hablar(mensaje: String): void",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 776,
+									"top": 790,
+									"width": 280.8896484375,
+									"height": 68
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 776,
+							"top": 712,
+							"width": 279.8896484375,
+							"height": 146,
+							"nameCompartment": {
+								"$ref": "view_minionMorado_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_minionMorado_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_minionMorado_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "view_minionMorado_reception"
+							},
+							"templateParameterCompartment": {
+								"$ref": "view_minionMorado_template"
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "view_villano",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "villano"
+							},
+							"subViews": [
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGb/726VduplCM=",
+									"_parent": {
+										"$ref": "view_villano"
+									},
+									"model": {
+										"$ref": "villano"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 420,
+									"top": 25,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGb/726Vduqud8=",
+									"_parent": {
+										"$ref": "view_villano"
+									},
+									"model": {
+										"$ref": "villano"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 420,
+									"top": 25,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "view_villano_name",
+									"_parent": {
+										"$ref": "view_villano"
+									},
+									"model": {
+										"$ref": "villano"
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VdusDNg=",
+											"_parent": {
+												"$ref": "view_villano_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 840,
+											"top": 50,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Vdut0H8=",
+											"_parent": {
+												"$ref": "view_villano_name"
+											},
+											"font": "Arial;13;1",
+											"parentStyle": true,
+											"left": 845,
+											"top": 427,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "Villano"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726Vduu4Qk=",
+											"_parent": {
+												"$ref": "view_villano_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 840,
+											"top": 50,
+											"width": 65.72998046875,
+											"height": 13,
+											"text": "(from Root)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGb/726VduvKdM=",
+											"_parent": {
+												"$ref": "view_villano_name"
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 840,
+											"top": 50,
+											"height": 13,
+											"horizontalAlignment": 1
+										},
+										{
+											"_type": "LabelView",
+											"_id": "view_villano_name_label",
+											"_parent": {
+												"$ref": "view_villano_name"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 442,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "Villano"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 840,
+									"top": 420,
+									"width": 276.31298828125,
+									"height": 40,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGb/726VdusDNg="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGb/726Vdut0H8="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGb/726Vduu4Qk="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGb/726VduvKdM="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "view_villano_attributes",
+									"_parent": {
+										"$ref": "view_villano"
+									},
+									"model": {
+										"$ref": "villano"
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726oNx4OQM=",
+											"_parent": {
+												"$ref": "view_villano_attributes"
+											},
+											"model": {
+												"$ref": "attr_villano_nombre"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 465,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "-nombre: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726oNx7kYA=",
+											"_parent": {
+												"$ref": "view_villano_attributes"
+											},
+											"model": {
+												"$ref": "attr_villano_planMalevolo"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 480,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "-planMalevolo: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726oNx+PZk=",
+											"_parent": {
+												"$ref": "view_villano_attributes"
+											},
+											"model": {
+												"$ref": "attr_villano_nivelMaldad"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 495,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "-nivelMaldad: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGb/726oNyB99k=",
+											"_parent": {
+												"$ref": "view_villano_attributes"
+											},
+											"model": {
+												"$ref": "attr_villano_minions"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 510,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "-minions: List<Minion>",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 840,
+									"top": 460,
+									"width": 276.31298828125,
+									"height": 68
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "view_villano_operations",
+									"_parent": {
+										"$ref": "view_villano"
+									},
+									"model": {
+										"$ref": "villano"
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726oNyE360=",
+											"_parent": {
+												"$ref": "view_villano_operations"
+											},
+											"model": {
+												"$ref": "op_villano_constructor"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 533,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "+Villano(nombre: String, planMalevolo: String)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726oNyHoYU=",
+											"_parent": {
+												"$ref": "view_villano_operations"
+											},
+											"model": {
+												"$ref": "op_villano_reclutarMinion"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 548,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "+reclutarMinion(minion: Minion): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGb/726oNyKoIY=",
+											"_parent": {
+												"$ref": "view_villano_operations"
+											},
+											"model": {
+												"$ref": "op_villano_ejecutarPlan"
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 845,
+											"top": 563,
+											"width": 266.31298828125,
+											"height": 13,
+											"text": "+ejecutarPlan(): boolean",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 840,
+									"top": 528,
+									"width": 276.31298828125,
+									"height": 53
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"containerChangeable": true,
+							"left": 840,
+							"top": 420,
+							"width": 275.31298828125,
+							"height": 161,
+							"nameCompartment": {
+								"$ref": "view_villano_name"
+							},
+							"attributeCompartment": {
+								"$ref": "view_villano_attributes"
+							},
+							"operationCompartment": {
+								"$ref": "view_villano_operations"
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGb/726VduplCM="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGb/726Vduqud8="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "view_gen_minion_personaje",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "gen_minion_personaje"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvHwVw=",
+									"_parent": {
+										"$ref": "view_gen_minion_personaje"
+									},
+									"model": {
+										"$ref": "gen_minion_personaje"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 566,
+									"top": 281,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_gen_minion_personaje"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvIwPk=",
+									"_parent": {
+										"$ref": "view_gen_minion_personaje"
+									},
+									"model": {
+										"$ref": "gen_minion_personaje"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 604,
+									"top": 306,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minion_personaje"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minion_personaje_label",
+									"_parent": {
+										"$ref": "view_gen_minion_personaje"
+									},
+									"model": {
+										"$ref": "gen_minion_personaje"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 564,
+									"top": 289,
+									"width": 31.8017578125,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minion_personaje"
+									},
+									"edgePosition": 1,
+									"text": "es un"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_personaje"
+							},
+							"tail": {
+								"$ref": "view_minion"
+							},
+							"lineStyle": 1,
+							"points": "561:351;623:257",
+							"nameLabel": {
+								"$ref": "view_gen_minion_personaje_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726VtvHwVw="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726VtvIwPk="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "view_gen_minionAlto_minion",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "gen_minionAlto_minion"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvM1uE=",
+									"_parent": {
+										"$ref": "view_gen_minionAlto_minion"
+									},
+									"model": {
+										"$ref": "gen_minionAlto_minion"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 235,
+									"top": 655,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_gen_minionAlto_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvNryA=",
+									"_parent": {
+										"$ref": "view_gen_minionAlto_minion"
+									},
+									"model": {
+										"$ref": "gen_minionAlto_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 264,
+									"top": 689,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionAlto_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minionAlto_minion_label",
+									"_parent": {
+										"$ref": "view_gen_minionAlto_minion"
+									},
+									"model": {
+										"$ref": "gen_minionAlto_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 230,
+									"top": 666,
+									"width": 31.8017578125,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionAlto_minion"
+									},
+									"edgePosition": 1,
+									"text": "es un"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_minion"
+							},
+							"tail": {
+								"$ref": "view_minionAlto"
+							},
+							"lineStyle": 1,
+							"points": "216:719;295:649",
+							"nameLabel": {
+								"$ref": "view_gen_minionAlto_minion_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726VtvM1uE="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726VtvNryA="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "view_gen_minionBajo_minion",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "gen_minionBajo_minion"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvR814=",
+									"_parent": {
+										"$ref": "view_gen_minionBajo_minion"
+									},
+									"model": {
+										"$ref": "gen_minionBajo_minion"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 365,
+									"top": 671,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_gen_minionBajo_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvSWIY=",
+									"_parent": {
+										"$ref": "view_gen_minionBajo_minion"
+									},
+									"model": {
+										"$ref": "gen_minionBajo_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 408,
+									"top": 687,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionBajo_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minionBajo_minion_label",
+									"_parent": {
+										"$ref": "view_gen_minionBajo_minion"
+									},
+									"model": {
+										"$ref": "gen_minionBajo_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 364,
+									"top": 676,
+									"width": 31.8017578125,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionBajo_minion"
+									},
+									"edgePosition": 1,
+									"text": "es un"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_minion"
+							},
+							"tail": {
+								"$ref": "view_minionBajo"
+							},
+							"lineStyle": 1,
+							"points": "380:727;409:649",
+							"nameLabel": {
+								"$ref": "view_gen_minionBajo_minion_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726VtvR814="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726VtvSWIY="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "view_gen_minionUnOjo_minion",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "gen_minionUnOjo_minion"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvWqRQ=",
+									"_parent": {
+										"$ref": "view_gen_minionUnOjo_minion"
+									},
+									"model": {
+										"$ref": "gen_minionUnOjo_minion"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 536,
+									"top": 695,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_gen_minionUnOjo_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvXXuI=",
+									"_parent": {
+										"$ref": "view_gen_minionUnOjo_minion"
+									},
+									"model": {
+										"$ref": "gen_minionUnOjo_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 576,
+									"top": 675,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionUnOjo_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minionUnOjo_minion_label",
+									"_parent": {
+										"$ref": "view_gen_minionUnOjo_minion"
+									},
+									"model": {
+										"$ref": "gen_minionUnOjo_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 534,
+									"top": 688,
+									"width": 31.8017578125,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionUnOjo_minion"
+									},
+									"edgePosition": 1,
+									"text": "es un"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_minion"
+							},
+							"tail": {
+								"$ref": "view_minionUnOjo"
+							},
+							"lineStyle": 1,
+							"points": "584:727;543:649",
+							"nameLabel": {
+								"$ref": "view_gen_minionUnOjo_minion_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726VtvWqRQ="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726VtvXXuI="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "view_gen_minionMorado_minion",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "gen_minionMorado_minion"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minionMorado_minion_edge1",
+									"_parent": {
+										"$ref": "view_gen_minionMorado_minion"
+									},
+									"model": {
+										"$ref": "gen_minionMorado_minion"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 699,
+									"top": 677,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_gen_minionMorado_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minionMorado_minion_edge2",
+									"_parent": {
+										"$ref": "view_gen_minionMorado_minion"
+									},
+									"model": {
+										"$ref": "gen_minionMorado_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 722,
+									"top": 639,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionMorado_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_gen_minionMorado_minion_label",
+									"_parent": {
+										"$ref": "view_gen_minionMorado_minion"
+									},
+									"model": {
+										"$ref": "gen_minionMorado_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 692,
+									"top": 664,
+									"width": 31.8017578125,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_gen_minionMorado_minion"
+									},
+									"edgePosition": 1,
+									"text": "es un"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_minion"
+							},
+							"tail": {
+								"$ref": "view_minionMorado"
+							},
+							"lineStyle": 1,
+							"points": "798:711;632:606",
+							"nameLabel": {
+								"$ref": "view_gen_minionMorado_minion_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "view_gen_minionMorado_minion_edge1"
+							},
+							"propertyLabel": {
+								"$ref": "view_gen_minionMorado_minion_edge2"
+							}
+						},
+						{
+							"_type": "UMLInterfaceRealizationView",
+							"_id": "view_real_minion_hablar",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "real_minion_hablar"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvbyTI=",
+									"_parent": {
+										"$ref": "view_real_minion_hablar"
+									},
+									"model": {
+										"$ref": "real_minion_hablar"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 224,
+									"top": 354,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_real_minion_hablar"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvcdJo=",
+									"_parent": {
+										"$ref": "view_real_minion_hablar"
+									},
+									"model": {
+										"$ref": "real_minion_hablar"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 250,
+									"top": 317,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_real_minion_hablar"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_real_minion_hablar_label",
+									"_parent": {
+										"$ref": "view_real_minion_hablar"
+									},
+									"model": {
+										"$ref": "real_minion_hablar"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 200,
+									"top": 342,
+									"width": 67.1962890625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_real_minion_hablar"
+									},
+									"edgePosition": 1,
+									"text": "implementa"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_iHablar"
+							},
+							"tail": {
+								"$ref": "view_minion"
+							},
+							"lineStyle": 1,
+							"points": "295:376;189:297",
+							"nameLabel": {
+								"$ref": "view_real_minion_hablar_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726VtvbyTI="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726VtvcdJo="
+							}
+						},
+						{
+							"_type": "UMLInterfaceRealizationView",
+							"_id": "view_real_minion_trabajar",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "real_minion_trabajar"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726Vtvg6Ec=",
+									"_parent": {
+										"$ref": "view_real_minion_trabajar"
+									},
+									"model": {
+										"$ref": "real_minion_trabajar"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 235,
+									"top": 477,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_real_minion_trabajar"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726VtvhXzc=",
+									"_parent": {
+										"$ref": "view_real_minion_trabajar"
+									},
+									"model": {
+										"$ref": "real_minion_trabajar"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 245,
+									"top": 433,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_real_minion_trabajar"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_real_minion_trabajar_label",
+									"_parent": {
+										"$ref": "view_real_minion_trabajar"
+									},
+									"model": {
+										"$ref": "real_minion_trabajar"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 205,
+									"top": 462,
+									"width": 67.1962890625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_real_minion_trabajar"
+									},
+									"edgePosition": 1,
+									"text": "implementa"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_iTrabajar"
+							},
+							"tail": {
+								"$ref": "view_minion"
+							},
+							"lineStyle": 1,
+							"points": "295:465;189:443",
+							"nameLabel": {
+								"$ref": "view_real_minion_trabajar_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726Vtvg6Ec="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726VtvhXzc="
+							}
+						},
+						{
+							"_type": "UMLAssociationView",
+							"_id": "view_assoc_villano_minion",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "assoc_villano_minion"
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vlLnQ=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_villano_minion"
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 734,
+									"top": 524,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vmgV0=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_villano_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 735,
+									"top": 479,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vnoFc=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end1_villano"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 803,
+									"top": 508,
+									"width": 20.9599609375,
+									"height": 13,
+									"alpha": 0.5235987755982988,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 2,
+									"text": "jefe"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vo5ac=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end1_villano"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 810,
+									"top": 522,
+									"height": 13,
+									"alpha": 0.7853981633974483,
+									"distance": 40,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 2
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vpS/o=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end1_villano"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 807,
+									"top": 481,
+									"width": 21.68359375,
+									"height": 13,
+									"alpha": -0.5235987755982988,
+									"distance": 25,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 2,
+									"text": "0..1"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vqMWk=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end2_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 648,
+									"top": 511,
+									"width": 95.37353515625,
+									"height": 13,
+									"alpha": -0.2782996170763963,
+									"distance": 65.52098900352466,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"text": "minionsServidos"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vrpmA=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end2_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 660,
+									"top": 522,
+									"height": 13,
+									"alpha": -0.7853981633974483,
+									"distance": 40,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									}
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/726V9vsBDE=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end2_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 640,
+									"top": 472,
+									"width": 19.5126953125,
+									"height": 13,
+									"alpha": 0.9129074370073158,
+									"distance": 27.80287754891569,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"text": "0..*"
+								},
+								{
+									"_type": "UMLQualifierCompartmentView",
+									"_id": "AAAAAAGb/726V9vtoKw=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end1_villano"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"top": -32,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLQualifierCompartmentView",
+									"_id": "AAAAAAGb/726V9vuP3E=",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end2_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"top": -32,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_assoc_villano_minion_label",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_villano_minion"
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 734,
+									"top": 509,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_assoc_villano_minion_end1",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end1_villano"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 806,
+									"top": 530,
+									"width": 21.68359375,
+									"height": 13,
+									"alpha": 1.0186531618398855,
+									"distance": 42.5440947723653,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"edgePosition": 2,
+									"text": "0..1"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "view_assoc_villano_minion_end2",
+									"_parent": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"model": {
+										"$ref": "assoc_end2_minion"
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 638,
+									"top": 535,
+									"width": 19.5126953125,
+									"height": 13,
+									"alpha": -1.2277721752128214,
+									"distance": 44.598206241955516,
+									"hostEdge": {
+										"$ref": "view_assoc_villano_minion"
+									},
+									"text": "0..*"
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_minion"
+							},
+							"tail": {
+								"$ref": "view_villano"
+							},
+							"lineStyle": 1,
+							"points": "839:500;632:500",
+							"nameLabel": {
+								"$ref": "view_assoc_villano_minion_label"
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/726V9vlLnQ="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/726V9vmgV0="
+							},
+							"tailRoleNameLabel": {
+								"$ref": "AAAAAAGb/726V9vnoFc="
+							},
+							"tailPropertyLabel": {
+								"$ref": "AAAAAAGb/726V9vo5ac="
+							},
+							"tailMultiplicityLabel": {
+								"$ref": "AAAAAAGb/726V9vpS/o="
+							},
+							"headRoleNameLabel": {
+								"$ref": "AAAAAAGb/726V9vqMWk="
+							},
+							"headPropertyLabel": {
+								"$ref": "AAAAAAGb/726V9vrpmA="
+							},
+							"headMultiplicityLabel": {
+								"$ref": "AAAAAAGb/726V9vsBDE="
+							},
+							"tailQualifiersCompartment": {
+								"$ref": "AAAAAAGb/726V9vtoKw="
+							},
+							"headQualifiersCompartment": {
+								"$ref": "AAAAAAGb/726V9vuP3E="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "AAAAAAGb/8Sd+gCZ6+A=",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"model": {
+								"$ref": "AAAAAAGb/8Sd+gCXhaE="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/8Sd+gCaiWo=",
+									"_parent": {
+										"$ref": "AAAAAAGb/8Sd+gCZ6+A="
+									},
+									"model": {
+										"$ref": "AAAAAAGb/8Sd+gCXhaE="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 802,
+									"top": 341,
+									"width": 39.3935546875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAGb/8Sd+gCZ6+A="
+									},
+									"edgePosition": 1,
+									"text": "+es un"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/8Sd+gCbtyk=",
+									"_parent": {
+										"$ref": "AAAAAAGb/8Sd+gCZ6+A="
+									},
+									"model": {
+										"$ref": "AAAAAAGb/8Sd+gCXhaE="
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 810,
+									"top": 351,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAGb/8Sd+gCZ6+A="
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGb/8Sd+gCc3n0=",
+									"_parent": {
+										"$ref": "AAAAAAGb/8Sd+gCZ6+A="
+									},
+									"model": {
+										"$ref": "AAAAAAGb/8Sd+gCXhaE="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 844,
+									"top": 322,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAGb/8Sd+gCZ6+A="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "view_personaje"
+							},
+							"tail": {
+								"$ref": "view_villano"
+							},
+							"lineStyle": 1,
+							"points": "905:419;761:257",
+							"showVisibility": true,
+							"nameLabel": {
+								"$ref": "AAAAAAGb/8Sd+gCaiWo="
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAGb/8Sd+gCbtyk="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAGb/8Sd+gCc3n0="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGb/8VKAAFUpXw=",
+							"_parent": {
+								"$ref": "diagram_minions"
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 48,
+							"top": 80,
+							"width": 228.10791015625,
+							"height": 40,
+							"text": "Daniel Ortiz Aristizábal - 000186841\nFelipe Torres Montoya - 000524913",
+							"wordWrap": false
+						}
+					]
+				}
+			]
+		}
+	],
+	"documentVersion": 1
+}
