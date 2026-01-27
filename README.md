@@ -1,4 +1,6 @@
-# Taller #1 - Repaso
+# Proyecto de maquetación nivel 3
+
+Desarrollo del proyecto [**Canal Street Market**](https://www.frontendpractice.com/projects/canal-street-market)
 
 ---
 
