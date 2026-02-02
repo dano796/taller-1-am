@@ -72,12 +72,11 @@ body {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 40px 50px;
+  padding: 40px 50px 40px 50px;
   padding-right: 140px;
   background: #fff;
   scrollbar-width: none;
 }
-
 
 .hero h1 {
   font-size: 40px;
@@ -88,8 +87,7 @@ body {
 }
 
 .image-section {
-  margin-top: 30px;
-  margin-left: -50px;
+  margin: 30px -50px 0 -50px;
   margin-right: -20px;
   overflow: hidden;
   max-width: calc(100% + 70px);
@@ -106,10 +104,27 @@ body {
   object-fit: cover;
 }
 
-.market-section {
+.market-section,
+.events-section,
+.location-section,
+.vendor-section,
+.footer-section,
+.newsletter-section {
   margin-top: 50px;
-  margin-bottom: 50px;
   padding-right: 60px;
+}
+
+.market-section {
+  margin-bottom: 50px;
+}
+
+.events-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.vendor-section {
+  text-align: center;
 }
 
 .market-section h2 {
@@ -120,15 +135,32 @@ body {
   max-width: 350px;
 }
 
-.market-grid {
+.market-grid,
+.events-list,
+.footer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.market-item {
+.events-list {
+  gap: 30px;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.footer-grid {
+  gap: 0;
+}
+
+.market-item,
+.event-item {
   display: flex;
   flex-direction: column;
+}
+
+.event-item {
+  gap: 15px;
 }
 
 .market-item img {
@@ -138,23 +170,19 @@ body {
   margin-bottom: 15px;
 }
 
-.market-item h3 {
+.market-item h3,
+.market-item p {
   font-size: 12px;
-  font-weight: 400;
   line-height: 1.5;
+}
+
+.market-item h3 {
+  font-weight: 400;
   margin-bottom: 10px;
 }
 
 .market-item p {
-  font-size: 12px;
-  line-height: 1.5;
   margin: 2px 0;
-}
-
-.events-section {
-  margin-top: 60px;
-  padding-right: 60px;
-  text-align: center;
 }
 
 .events-header {
@@ -183,20 +211,6 @@ body {
   margin: 25px 0;
 }
 
-.events-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin: 30px 0;
-  text-align: left;
-}
-
-.event-item {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
 .event-date {
   font-size: 11px;
   font-weight: 400;
@@ -223,25 +237,32 @@ body {
   border-top: 1px dashed #000;
 }
 
-.see-all-btn {
-  padding: 10px 40px;
+.see-all-btn,
+.click-here-btn {
   border: 1px solid #000;
   background: transparent;
-  font-size: 12px;
   cursor: pointer;
   transition: all 0.3s;
-  margin: 0 30px;
-  flex-shrink: 0;
 }
 
-.see-all-btn:hover {
+.see-all-btn:hover,
+.click-here-btn:hover,
+.newsletter-form button:hover {
   background: #000;
   color: #fff;
 }
 
-.location-section {
-  margin-top: 50px;
-  padding-right: 60px;
+.see-all-btn {
+  padding: 10px 40px;
+  font-size: 12px;
+  margin: 0 30px;
+  flex-shrink: 0;
+}
+
+.click-here-btn {
+  padding: 8px 30px;
+  font-size: 11px;
+  margin-bottom: 25px;
 }
 
 .location-grid {
@@ -277,42 +298,10 @@ body {
   height: auto;
 }
 
-.vendor-section {
-  margin-top: 50px;
-  padding-right: 60px;
-  text-align: center;
-}
-
 .vendor-section h2 {
   font-size: 28px;
   font-weight: 400;
   margin: 25px 0;
-}
-
-.click-here-btn {
-  padding: 8px 30px;
-  border: 1px solid #000;
-  background: transparent;
-  font-size: 11px;
-  cursor: pointer;
-  margin-bottom: 25px;
-  transition: all 0.3s;
-}
-
-.click-here-btn:hover {
-  background: #000;
-  color: #fff;
-}
-
-.footer-section {
-  margin-top: 50px;
-  padding-right: 60px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
 }
 
 .footer-box {
@@ -333,11 +322,6 @@ body {
 .footer-box p {
   font-size: 12px;
   line-height: 1.5;
-}
-
-.newsletter-section {
-  margin-top: 50px;
-  padding-right: 60px;
 }
 
 .newsletter-box {
@@ -376,11 +360,6 @@ body {
   transition: all 0.3s;
 }
 
-.newsletter-form button:hover {
-  background: #000;
-  color: #fff;
-}
-
 .copyright {
   margin-top: 50px;
   padding: 30px 0;
@@ -409,6 +388,7 @@ body {
   top: 0;
   height: 90vh;
   display: flex;
+  flex-direction: row;
   z-index: 150;
 }
 
@@ -419,10 +399,24 @@ body {
   justify-content: center;
   width: 40px;
   height: 100%;
-  transition: all 0.5s ease;
+  transition: width 0.5s ease, z-index 0s;
   cursor: pointer;
   overflow: hidden;
-  z-index: 60;
+}
+
+.panel.food {
+  background: #5ea3ec;
+  z-index: 61;
+}
+
+.panel.retail {
+  background: #f64444;
+  z-index: 62;
+}
+
+.panel.community {
+  background: #ffb400;
+  z-index: 63;
 }
 
 .panel p {
@@ -430,31 +424,312 @@ body {
   white-space: nowrap;
   font-size: 16px;
   font-weight: 500;
-  color: #000000;
+  color: #000;
   transform: rotate(90deg);
   transform-origin: center;
   transition: all 0.5s ease;
   letter-spacing: 2px;
 }
 
-.panel.food {
-  background: #5ea3ec;
-}
-
-.panel.retail {
-  background: #f64444;
-}
-
-.panel.community {
-  background: #ffb400;
-}
-
 .panel.active {
   width: 400px;
-  z-index: 150;
+  z-index: 150 !important;
 }
 
 .panel.active p {
   transform: rotate(0deg);
   font-size: 32px;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 20px;
+  }
+  .main-content {
+    padding: 30px;
+    padding-right: 100px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .market-section h2,
+  .events-header h2 {
+    font-size: 36px;
+  }
+  .market-grid,
+  .events-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .events-list {
+    gap: 20px;
+  }
+  .market-section,
+  .events-section,
+  .location-section,
+  .vendor-section,
+  .footer-section,
+  .newsletter-section,
+  .copyright {
+    padding-right: 40px;
+  }
+  .panels {
+    height: 85vh;
+  }
+  .panel {
+    width: 35px;
+  }
+  .panel.active {
+    width: 350px;
+  }
+  .panel.active p {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: visible;
+    height: auto;
+  }
+  .header {
+    height: 50px;
+    padding: 0 15px;
+  }
+  .logo-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 7px;
+  }
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding-top: 50px;
+  }
+  .main-content {
+    padding: 20px;
+    overflow-y: visible;
+  }
+  .hero h1 {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  .image-section {
+    margin-left: -20px;
+    margin-right: -20px;
+    max-width: calc(100% + 40px);
+  }
+  .image-section img {
+    max-height: 300px;
+  }
+  .market-section h2,
+  .events-header h2 {
+    font-size: 28px;
+  }
+  .market-section h2 {
+    margin-bottom: 30px;
+  }
+  .market-grid,
+  .events-list,
+  .location-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .market-grid {
+    gap: 30px;
+  }
+  .events-list {
+    gap: 25px;
+  }
+  .market-item img {
+    height: 200px;
+  }
+  .market-item h3,
+  .event-date,
+  .event-title {
+    font-size: 14px;
+  }
+  .event-date {
+    font-size: 12px;
+  }
+  .events-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .see-all-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .line-left,
+  .line-right {
+    display: none;
+  }
+  .see-all-btn {
+    margin: 0;
+  }
+  .address-box {
+    padding: 30px;
+  }
+  .address-box h3 {
+    font-size: 28px;
+  }
+  .vendor-section h2 {
+    font-size: 22px;
+  }
+  .newsletter-box {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .newsletter-form,
+  .newsletter-form input {
+    width: 100%;
+  }
+  .copyright,
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-links {
+    gap: 10px;
+  }
+  .copyright {
+    text-align: center;
+  }
+  .market-section,
+  .events-section,
+  .location-section,
+  .vendor-section,
+  .footer-section,
+  .newsletter-section,
+  .copyright {
+    padding-right: 20px;
+  }
+  .panels {
+    flex-direction: column;
+  }
+  .panel {
+    position: absolute;
+    right: 0;
+    width: 30px;
+  }
+  .panel.food {
+    top: 50px;
+    height: 80px;
+  }
+  .panel.retail {
+    top: 130px;
+    height: 80px;
+  }
+  .panel.community {
+    top: 210px;
+    height: 80px;
+  }
+  .panel p {
+    transform: rotate(90deg);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .panel.active {
+    width: 200px;
+    height: 150px;
+  }
+  .panel.active p {
+    transform: rotate(0deg);
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 45px;
+  }
+  .container {
+    padding-top: 45px;
+  }
+  .logo-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 6px;
+  }
+  .main-content {
+    padding: 15px 40px 15px 15px;
+  }
+  .hero h1 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  .image-section {
+    margin-left: -15px;
+    margin-right: -15px;
+    max-width: calc(100% + 30px);
+  }
+  .image-section img {
+    max-height: 250px;
+  }
+  .market-section h2,
+  .events-header h2 {
+    font-size: 24px;
+  }
+  .market-item img {
+    height: 180px;
+  }
+  .address-box h3 {
+    font-size: 24px;
+  }
+  .vendor-section h2 {
+    font-size: 20px;
+  }
+  .newsletter-box {
+    padding: 25px;
+  }
+  .newsletter-box h3 {
+    font-size: 16px;
+  }
+  .newsletter-form input {
+    font-size: 11px;
+    padding: 10px 15px;
+  }
+  .newsletter-form button {
+    padding: 10px 12px;
+  }
+  .copyright {
+    font-size: 10px;
+  }
+  .footer-links a {
+    font-size: 11px;
+  }
+  .market-section,
+  .events-section,
+  .location-section,
+  .vendor-section,
+  .footer-section,
+  .newsletter-section,
+  .copyright {
+    padding-right: 40px;
+  }
+  .panel {
+    width: 25px;
+  }
+  .panel.food {
+    top: 45px;
+    height: 70px;
+  }
+  .panel.retail {
+    top: 115px;
+    height: 70px;
+  }
+  .panel.community {
+    top: 185px;
+    height: 70px;
+  }
+  .panel p {
+    font-size: 11px;
+  }
+  .panel.active {
+    width: 180px;
+    height: 130px;
+  }
+  .panel.active p {
+    font-size: 18px;
+  }
 }
